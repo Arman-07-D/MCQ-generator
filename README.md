@@ -16,8 +16,16 @@ A Streamlit-based app that generates multiple-choice questions (MCQs) from any t
 
 ## Installation
 
-1. **Clone the repository**
+1. **Clone the repository
 
 ```bash
 git clone https://github.com/Arman-07-D/MCQ-generator.git
 cd MCQ-generator
+```
+2. **Install Dependencies
+ ```bash
+pip install -r requirements.txt
+```
+3.**Run the app
+```bash
+streamlit run app.py

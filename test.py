@@ -7,7 +7,7 @@ load_dotenv(".env")
 
 client = Groq(api_key=os.getenv("GR_TOKEN"))
 
-def generate_mcqs(text: str,num: int) -> str:
+def generate_mcqs(text: str,num: int,level:str="Medium") -> str:   #difficulty is medium by default
     # Properly indented prompt using textwrap.dedent
     if num<1:
         num=1
@@ -19,6 +19,7 @@ def generate_mcqs(text: str,num: int) -> str:
         You are a teacher.
 
         From the following text, generate {num} multiple-choice questions.
+        Difficulty level:{level}
 
         Text:
         {text}

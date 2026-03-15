@@ -27,7 +27,7 @@ def generate_mcqs(text: str,num: int) -> str:
         """)
     for i in range(1,num+1):
         prompt+=textwrap.dedent(f"""
-        Q1. question here
+        Q{i}. question here
         A) option
         B) option
         C) option
@@ -48,5 +48,5 @@ def generate_mcqs(text: str,num: int) -> str:
         max_tokens=1024,
     )
 
-    # Return the content of the API response
+    
     return completion.choices[0].message.content

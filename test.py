@@ -3,7 +3,7 @@ from dotenv import load_dotenv
 from groq import Groq
 import textwrap
 
-load_dotenv()
+load_dotenv(".env")
 
 client = Groq(api_key=os.getenv("GR_TOKEN"))
 
@@ -39,7 +39,7 @@ def generate_mcqs(text: str,num: int) -> str:
     """)
 
     completion = client.chat.completions.create(
-        model="llama-3.1-8b-instant",
+        model="llama-3.3-70b-versatile",
         messages=[
             {"role": "system", "content": "You are a helpful teacher who creates clear, well-formatted MCQ questions."},
             {"role": "user", "content": prompt}

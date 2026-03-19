@@ -14,30 +14,32 @@ def generate_mcqs(text: str,num: int,level:str="Medium") -> str:   #difficulty i
     elif num>20:
         num=20
 
+    prompt = textwrap.dedent(f"""
+You are a teacher.
 
-    prompt = textwrap.dedent(f"""\
-        You are a teacher.
+From the following text, generate {num} multiple-choice questions.
+Difficulty level: {level}
 
-        From the following text, generate {num} multiple-choice questions.
-        Difficulty level:{level}
+Return ONLY valid JSON in this format:
 
-        Text:
-        {text}
+[
+  {{
+    "question": "Question text",
+    "options": ["A) option", "B) option", "C) option", "D) option"],
+    "answer": "X" the  option
+  }}
+]
 
-        Format:
-        """)
-    for i in range(1,num+1):
-        prompt+=textwrap.dedent(f"""
-        Q{i}. question here
-        A) option
-        B) option
-        C) option
-        D) option
-        Answer: X
+Rules:
+- Do NOT add any explanation
+- Do NOT add extra text
+- Output must be valid JSON only
+- Each question must have exactly 4 options
+- Answer must be A, B, C, or D show the answer with its containing option
 
-        Q2. ...and so on
-        Q3. ...and so on
-    """)
+Text:
+{text}
+""")
 
     completion = client.chat.completions.create(
         model="llama-3.3-70b-versatile",

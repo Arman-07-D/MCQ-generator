@@ -21,7 +21,7 @@ elif input_mode == "PDF":
             text += page.extract_text() or ""
         st.success("PDF loaded successfully")
 
-num = st.slider("Number of MCQs (1-20)", min_value=1, max_value=20, value=5)
+num = st.slider("Number of MCQs (1-10)", min_value=1, max_value=10, value=5)
 level = st.selectbox("Select difficulty level", ["Easy", "Medium", "Hard"])
 
 if "mcqs" not in st.session_state:

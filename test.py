@@ -11,8 +11,8 @@ def generate_mcqs(text: str,num: int,level:str="Medium") -> str:   #difficulty i
     # Properly indented prompt using textwrap.dedent
     if num<1:
         num=1
-    elif num>20:
-        num=20
+    elif num>10:
+        num=10
 
     prompt = textwrap.dedent(f"""
 You are a teacher.

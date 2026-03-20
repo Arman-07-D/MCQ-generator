@@ -3,8 +3,8 @@ from test import generate_mcqs
 import PyPDF2
 import json
 
-st.title("LAST MINUTE")
-st.subheader("Generate exam-ready MCQs instantly using Artificial Intelligence..")
+st.title("QuizBot")
+st.subheader("Generate exam-ready MCQs or test your potential instantly using Artificial Intelligence..")
 
 input_mode = st.radio("Select Input Mode", ["Text", "PDF"])
 
